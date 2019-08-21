@@ -9,7 +9,7 @@ def getArgs():
     return parser.parse_args()
 
 
-def filter(input,output,highest):
+def filtering(input,output,highest):
     df = pd.read_csv(input, delim_whitespace=True, names=['protein', 'SNP_ID', 'wt_codon', 'mu_codon', 'Wild_type', 'Mutant', 'Position', 'Disorder', 'Condifdence', 'pdb', 'PDB_position' , 'ID'])
     df1 = df[df.ID != '-']
     df1.to_csv(output, index=False, sep='\t')
@@ -18,7 +18,7 @@ def filter(input,output,highest):
 
 if __name__ == "__main__":
     args = getArgs()
-    filter = filter(args.input,args.output,args.highest)
+    filtering = filtering(args.input,args.output,args.highest)
     #input = 
     
     

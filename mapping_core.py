@@ -14,7 +14,7 @@ def getArgs():
 
 
 def filtering(inputcsv,output,highest):
-    df = pd.read_csv(inputcsv, delim_whitespace=True, names=['protein', 'SNP_ID', 'wt_codon', 'mu_codon', 'Wild_type', 'Mutant', 'Position', 'Disorder', 'Condifdence', 'pdb', 'PDB_position' , 'ID'])
+    df = pd.read_csv(inputcsv, delim_whitespace=True, names=['protein', 'SNP_ID', 'wt_codon', 'mu_codon', 'Mutant', 'Disorder', 'Condifdence', 'pdb', 'Position', 'Wild_type', 'PDB_position' , 'ID'])
     df1 = df[df.ID != '-']
     df1.to_csv(output, index=False, sep='\t')
     df2 = df1.groupby(['protein', 'SNP_ID'], sort=False, as_index=False).first()
